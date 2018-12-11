@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <string>
 #include <locale>
+#include "Librerias\manejoDeTamalgochis.h"
 
 using namespace std;
 
@@ -27,11 +28,12 @@ int main(){
              << "c) Salir" << endl
              << "=> ";
         cin >> decision;
-
         decision = toupper(decision);
+        fflush(stdin);
 
         switch (decision){
             case 'A':
+                crear();
                 notificacion = "";
                 break;
             case 'B':
