@@ -13,6 +13,7 @@ char decision;
 
 //Prototipos
 
+
 //Main
 
 int main(){
@@ -48,7 +49,10 @@ int main(){
         system("cls");
     }while(decision != 'C');
 
+    return 0;
+
 
 }
 
-//Funcioens
+//Funciones
+
