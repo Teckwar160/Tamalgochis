@@ -38,7 +38,8 @@ int main(){
                 notificacion = Fmensaje();
                 break;
             case 'B':
-                notificacion = "";
+                iniciar();
+                notificacion = Fmensaje();
                 break;
             case 'C':
                 break;

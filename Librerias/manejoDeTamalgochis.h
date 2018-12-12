@@ -161,6 +161,53 @@ void crear(){
 
 }
 
+int iniciar(){
+
+    //Variables
+    string notificacion,texto;
+    string nombreString;
+    ifstream buscador,mostrador;
+
+    //Inicio de la funcion
+
+    system("cls");
+
+    //do{
+        //Muestra los Tamalgochis registrados
+        mostrador.open("Archivos/Tamalgochis.txt",ios::in);
+
+        if(mostrador.fail()){
+            RTnotificacion = "No hay ningun tamalgochi registrado";
+        }else{
+
+            while(!mostrador.eof()){
+                getline(mostrador,texto);
+                cout << texto << endl;
+            }
+            mostrador.close();
+            cout << "\n\n\tInicio\n\n";
+
+            cout << "Notificacion: " << notificacion << endl << endl
+                 << "Nombre: ";
+            getline(cin,nombreString);
+        }
+
+
+
+
+
+    //}while();
+
+
+
+
+
+
+
+
+
+}
+
 string Fmensaje(){
     return RTnotificacion;
 
