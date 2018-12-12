@@ -8,8 +8,10 @@ Libreria que se encarga de guardar los tamalgochis y de checar que esten creados
 #include <string.h>
 
 //Defines
-#define vida 100
-#define ataque 50
+#define vida 10
+#define ataque 5
+#define defensa 5
+#define inventario 5
 
 using namespace std;
 
@@ -24,16 +26,24 @@ string Fmensaje();
 //Funciones
 
 void crear(){
-    system("cls");
+    //Variables de Crear
     string notificacion = "No uses espacios, estos se ignoraran";
     char nombre[20],verificacion;
-    string nombreString,Direccion= "Archivos/";
+    string nombreString,Direccion;
     int j,a=0,largo;
     ofstream archivo;
     ifstream buscador;
     bool libre;
 
+    //Inicio de la funcion
+
+    system("cls");
+
     do{
+        //Variables que se tienen que resetear
+        Direccion = "Archivos/";
+
+        //Contenido
         cout << "\n\n\tCreador\n\n";
 
         cout << "Notificacion: " << notificacion << endl << endl
@@ -74,15 +84,21 @@ void crear(){
         }
         buscador.close();
 
+        system("pause");
 
         if(libre == true){
             archivo.open(nombre,ios::app);
-            archivo << nombreString << " " << vida << " " << ataque << endl;
+            archivo << nombreString << " " << vida << " " << ataque << " " << defensa << " " << inventario << endl;
             archivo.close();
+
+            archivo.open("Archivos/Tamalgochis.txt",ios::app);
+            archivo << nombreString << endl;
+            archivo.close();
+
             RTnotificacion = "Tamalgochi creado con exito";
 
         }
-
+        system("cls");
     }while(libre != true);
 
 
