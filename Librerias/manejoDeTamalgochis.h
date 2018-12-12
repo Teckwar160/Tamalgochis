@@ -7,21 +7,27 @@ Libreria que se encarga de guardar los tamalgochis y de checar que esten creados
 #include <ctype.h>
 #include <string.h>
 
+//Defines
+#define vida 100
+#define ataque 50
+
 using namespace std;
 
 //Variables
+string RTnotificacion;
 
 //Prototipos
 void crear();
 int iniciar();
+string Fmensaje();
 
 //Funciones
 
 void crear(){
     system("cls");
     string notificacion = "No uses espacios, estos se ignoraran";
-    string lecturaAD,nombreString;
     char nombre[20],verificacion;
+    string nombreString,Direccion= "Archivos/";
     int j,a=0,largo;
     ofstream archivo;
     ifstream buscador;
@@ -35,7 +41,10 @@ void crear(){
              << "=> ";
         getline(cin,nombreString);
 
-        strcpy(nombre,nombreString.c_str());
+        Direccion = Direccion + nombreString + ".txt";
+
+
+        strcpy(nombre,Direccion.c_str());
 
         largo = strlen(nombre);
         while(nombre[a]!='\0'){
@@ -48,8 +57,6 @@ void crear(){
             a++;
         }
 
-        string(nombre);
-
         do{
             cout << "\n¿Es correcto? s/n" << endl
                  << "=> ";
@@ -58,33 +65,31 @@ void crear(){
             fflush(stdin);
         }while(verificacion != 'S' && verificacion != 'N');
 
-        archivo.open("Archivos/tamalgochis.txt",ios::app);
-        buscador.open("Archivos/tamalgochis.txt");
-        buscador >> lecturaAD;
-
-        if (archivo.fail()){
-            notificacion = "No se puede abrir la base de datos";
-        }
-
-        while(!buscador.eof()){
-            if(lecturaAD == nombre){
-                notificacion = "El usuario ya esta en uso";
-                libre = false;
-            }else{
-                libre = true;
-
-            }
-            buscador >> lecturaAD;
-        }
-        if (libre == true){
-            archivo << nombre << endl;
+        buscador.open(nombre,ios::in);
+        if(!buscador.fail()){
+            notificacion = "El nombre ya esta en uso";
+            libre = false;
+        }else{
+            libre = true;
         }
         buscador.close();
-        archivo.close();
 
-        system("cls");
+
+        if(libre == true){
+            archivo.open(nombre,ios::app);
+            archivo << nombreString << " " << vida << " " << ataque << endl;
+            archivo.close();
+            RTnotificacion = "Tamalgochi creado con exito";
+
+        }
+
     }while(libre != true);
 
 
+
+}
+
+string Fmensaje(){
+    return RTnotificacion;
 
 }

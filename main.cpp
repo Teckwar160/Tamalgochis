@@ -34,7 +34,7 @@ int main(){
         switch (decision){
             case 'A':
                 crear();
-                notificacion = "";
+                notificacion = Fmensaje();
                 break;
             case 'B':
                 notificacion = "";
