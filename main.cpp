@@ -10,6 +10,7 @@ using namespace std;
 //Variables
 string notificacion = "Escoge una opción";
 char decision;
+bool BanderaDeInicio;
 
 //Prototipos
 
@@ -40,6 +41,10 @@ int main(){
             case 'B':
                 iniciar();
                 notificacion = Fmensaje();
+                BanderaDeInicio = ControlDEInicio();
+
+                if(BanderaDeInicio == true)
+                    Tamalgochis();
                 break;
             case 'C':
                 break;
