@@ -19,13 +19,18 @@ using namespace std;
 string RTnotificacion;
 string RTnombre;
 bool RTValidacionDeInicio;
+string DireccionTamalgochi,DireccionIn,DireccionNumero;
 
 //Prototipos
 void crear();
 void iniciar();
+bool ControlDEInicio();
 string Fmensaje();
 string Fnombre();
-bool ControlDEInicio();
+string DT();
+string DI();
+string DN();
+
 
 //Funciones
 
@@ -106,6 +111,45 @@ void crear(){
             }
             a++;
         }
+
+        //Variables que se resetean
+        largo =0;
+        a=0;
+        j=0;
+
+        //Quita los espacios de la direccion del numero de inventario
+        largo = strlen(numeroInventario);
+        while(numeroInventario[a]!='\0'){
+            if (numeroInventario[a]==' '){
+                for(j=a;j<largo;j++){
+                    numeroInventario[j]=numeroInventario[j+1];
+                }
+                largo--;
+            }
+            a++;
+        }
+
+        //Variables que se resetean
+        largo =0;
+        a=0;
+        j=0;
+
+        //Quita los espacios de la direccion del inventario
+        largo = strlen(nombreInventario);
+        while(nombreInventario[a]!='\0'){
+            if (nombreInventario[a]==' '){
+                for(j=a;j<largo;j++){
+                    nombreInventario[j]=nombreInventario[j+1];
+                }
+                largo--;
+            }
+            a++;
+        }
+
+        //Variables que se resetean
+        largo =0;
+        a=0;
+        j=0;
 
         //Comprueba si es correcto el nombre
 
@@ -220,9 +264,7 @@ void iniciar(){
                 }
                 a++;
             }
-            //Para retornar el nombre
 
-            RTnombre = string(nombreLista);
 
             //Variables que se resetean
             largo =0;
@@ -255,11 +297,64 @@ void iniciar(){
                 }
                 a++;
             }
+
+
+            //Variables que se resetean
+            largo =0;
+            a=0;
+            j=0;
+
+            //Quita los espacios de la direccion del numero de inventario
+            largo = strlen(numeroInventario);
+            while(numeroInventario[a]!='\0'){
+                if (numeroInventario[a]==' '){
+                    for(j=a;j<largo;j++){
+                        numeroInventario[j]=numeroInventario[j+1];
+                    }
+                    largo--;
+                }
+                a++;
+            }
+
+            //Variables que se resetean
+            largo =0;
+            a=0;
+            j=0;
+
+            //Quita los espacios de la direccion del inventario
+            largo = strlen(nombreInventario);
+            while(nombreInventario[a]!='\0'){
+                if (nombreInventario[a]==' '){
+                    for(j=a;j<largo;j++){
+                        nombreInventario[j]=nombreInventario[j+1];
+                    }
+                    largo--;
+                }
+                a++;
+            }
+
+            //Variables que se resetean
+            largo =0;
+            a=0;
+            j=0;
+
+
+
+
+            //Comprueba que exista el Tamalgochi
+
             buscador.open(nombre,ios::in);
             if(!buscador.fail()){
+                //Variables de control
                 ValidacionInicio = true;
                 RTValidacionDeInicio = true;
+                //Para retornar las direcciones
+                RTnombre = string(nombreLista);
+                DireccionTamalgochi = string(nombre);
+                DireccionNumero = string(numeroInventario);
+                DireccionIn = string(nombreInventario);
             }else{
+                //Informa que no se encontro
                 notificacion = "Tamalgochi no encontrado";
                 ValidacionInicio = false;
             }
@@ -288,4 +383,15 @@ string Fnombre(){
 bool ControlDEInicio(){
     return RTValidacionDeInicio;
 
+}
+
+string DT(){
+    return DireccionTamalgochi;
+}
+string DN(){
+    return DireccionNumero;
+}
+
+string DI(){
+    return DireccionIn;
 }
