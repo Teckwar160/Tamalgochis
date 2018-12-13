@@ -4,6 +4,7 @@
 #include <string>
 #include <locale>
 #include "Librerias\manejoDeTamalgochis.h"
+#include "Librerias\Tamalgochis.h"
 
 using namespace std;
 
@@ -11,8 +12,6 @@ using namespace std;
 string notificacion = "Escoge una opción";
 char decision;
 bool BanderaDeInicio;
-
-//Prototipos
 
 
 //Main
@@ -59,6 +58,3 @@ int main(){
 
 
 }
-
-//Funciones
-

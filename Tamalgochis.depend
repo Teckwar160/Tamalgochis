@@ -1,13 +1,20 @@
 # depslib dependency file v1.0
-1544621784 source:c:\users\richie\documents\github\tamalgochis\main.cpp
+1544688041 source:c:\users\richie\documents\github\tamalgochis\main.cpp
 	<iostream>
 	<stdlib.h>
 	<ctype.h>
 	<string>
 	<locale>
 	"Librerias\manejoDeTamalgochis.h"
+	"Librerias\Tamalgochis.h"
 
-1544623184 c:\users\richie\documents\github\tamalgochis\librerias\manejodetamalgochis.h
+1544686936 c:\users\richie\documents\github\tamalgochis\librerias\manejodetamalgochis.h
+	<stdlib.h>
+	<fstream>
+	<ctype.h>
+	<string.h>
+
+1544688088 c:\users\richie\documents\github\tamalgochis\librerias\tamalgochis.h
 	<stdlib.h>
 	<fstream>
 	<ctype.h>

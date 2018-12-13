@@ -17,13 +17,14 @@ using namespace std;
 
 //Variables
 string RTnotificacion;
+string RTnombre;
 bool RTValidacionDeInicio;
 
 //Prototipos
 void crear();
 void iniciar();
-void Tamalgochis();
 string Fmensaje();
+string Fnombre();
 bool ControlDEInicio();
 
 //Funciones
@@ -83,8 +84,8 @@ void crear(){
         //Quita los espacios del nombre para evitar problemas
 
 
-        DireccionNumeroInventario = Direccion + nombreString + "numeroInventario.txt";
-        DireccionInventario = Direccion + nombreString + "inventario.txt";
+        DireccionNumeroInventario = Direccion + nombreString + "-numero-inventario.txt";
+        DireccionInventario = Direccion + nombreString + "-inventario.txt";
         Direccion = Direccion + nombreString + ".txt";
 
         //Direccion del archivo
@@ -219,6 +220,9 @@ void iniciar(){
                 }
                 a++;
             }
+            //Para retornar el nombre
+
+            RTnombre = string(nombreLista);
 
             //Variables que se resetean
             largo =0;
@@ -229,8 +233,8 @@ void iniciar(){
             //Quita los espacios del nombre para evitar problemas
 
 
-            DireccionNumeroInventario = Direccion + nombreString + "numeroInventario.txt";
-            DireccionInventario = Direccion + nombreString + "inventario.txt";
+            DireccionNumeroInventario = Direccion + nombreString + "-numero-inventario.txt";
+            DireccionInventario = Direccion + nombreString + "-inventario.txt";
             Direccion = Direccion + nombreString + ".txt";
 
             //Direccion del archivo
@@ -268,25 +272,16 @@ void iniciar(){
         system("cls");
     }while(ValidacionInicio != true);
 
-
-
-
-
-
-
-
-
 }
 
-void Tamalgochis(){
-    system("cls");
-    cout << "Entraste a Tamalgochis" << endl << endl;
-    system("pause");
-
-}
 
 string Fmensaje(){
     return RTnotificacion;
+
+}
+
+string Fnombre(){
+    return RTnombre;
 
 }
 
